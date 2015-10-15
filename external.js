@@ -9,53 +9,59 @@ Hello! Just a couple of things before you look at the code:
 
 function hw() {
 	console.log("Hello World!");
-	$("#hw>.out").text("Hello, World!");
+	$("#hwout").text("Hello, World!");
 }
 
 function eo() {
-	var num = $("#eo>.ip").val();
+	var num = $("#eoip").val();
 	if(num%2 == 0){
-		$("#eo>.out").text("Even");
+		$("#eoout").text("Even");
 	}
 	else{
-		$("#eo>.out").text("Odd");
+		$("#eoout").text("Odd");
 	}
 }
 
 function fib() {
-	var n = $("#fib>.ip").val();
-	$("#fib>.out").text("");
+	var n = $("#fibip").val();
+	$("#fibout").text("");
     var a = 0, b = 1, f = 1;
     for (var i = 2; i <= n; i++) {
-		$("#fib>.out").append(a + ", ");
+		$("#fibout").append(a + ", ");
         f = a + b;
         a = b;
         b = f;
     }
-    $("#fib>.out").append(a);
+    $("#fibout").append(a);
 }
 
 function arith() {
-	var x = $("#arith>.ip1").val();
-	var y = $("#arith>.ip2").val();
+	var x = $("#arithip1").val();
+	var y = $("#arithip2").val();
 	var z = x + y;
 	var a = z * 5;
 	var f = a % 4;
-	$("#arith>.out").text(f);
+	$("#arithout").text(f);
 }
 function subt() {
-	$("#subt>.out").text($("#subt>.ip1").val() - $("#subt>.ip2").val());
+	$("#subtout").text($("#subtip1").val() - $("#subtip2").val());
 }
 
 var arr;
 
 function sort() {
-	arr = $("#sort>.ip").val().split(", ");
-	if ($("#sort>.ip").val().match(/[a-z]/i)) {
+	arr = $("#sortip").val().split(", ");
+	if ($("#sortip").val().match(/[a-z]/i)) {
 		arr = arr.sort(function (a, b) { return a.toLowerCase().localeCompare(b.toLowerCase()); });
     }
 	else {
 		arr = arr.sort(function (a, b) { return (a - b) });
 	}
-	return (arr);
+	$("#sortout").text(function () {
+		var o = "";
+		for (var i=0; i < arr.length-1; i++) {
+			o += arr[i] + ", ";
+		}
+		return (o + arr[i]);
+	});
 }
