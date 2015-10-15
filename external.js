@@ -1,7 +1,17 @@
+/*
+
+Hello! Just a couple of things before you look at the code:
+	1) JavaScript is somewhat unique in how easy it is to diplay stuff for end users without the need for a framework
+	2) I am using JQuery which makes #1 EVEN EASIER
+	3) The sort algorithm is made very easy with JavaScript's handy baked-in sort() method. (Spencer, If you want me to re-make the algorithm without using sort() I will! :) )
+
+*/
+
 function hw() {
 	console.log("Hello World!");
 	$("#hw>.out").text("Hello, World!");
 }
+
 function eo() {
 	var num = $("#eo>.ip").val();
 	if(num%2 == 0){
@@ -11,6 +21,7 @@ function eo() {
 		$("#eo>.out").text("Odd");
 	}
 }
+
 function fib() {
 	var n = $("#fib>.ip").val();
 	$("#fib>.out").text("");
@@ -35,18 +46,16 @@ function arith() {
 function subt() {
 	$("#subt>.out").text($("#subt>.ip1").val() - $("#subt>.ip2").val());
 }
+
 var arr;
-function sort() { //This is a bubble sort
-	arr = $("#algor>.ip").val().split(", ");
-   var len = arr.length;
-   for (var i = len - 1; i >= 0; i--) {
-	   for (var x = 1; x <= i; x++) {
-		   if (arr[x - 1] > arr[x]) {
-			   var temp = arr[x - 1];
-			   arr[x - 1] = arr[x];
-			   arr[x] = temp;
-		   }
-	   }
-   }
-   $("#algor>.out").text(arr);
+
+function sort() {
+	arr = $("#sort>.ip").val().split(", ");
+	if ($("#sort>.ip").val().match(/[a-z]/i)) {
+		arr = arr.sort(function (a, b) { return a.toLowerCase().localeCompare(b.toLowerCase()); });
+    }
+	else {
+		arr = arr.sort(function (a, b) { return (a - b) });
+	}
+	return (arr);
 }
