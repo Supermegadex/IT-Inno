@@ -32,3 +32,21 @@ function arith() {
 	var f = a % 4;
 	$("#arith>.out").text(f);
 }
+function subt() {
+	$("#subt>.out").text($("#subt>.ip1").val() - $("#subt>.ip2").val());
+}
+var arr;
+function sort() { //This is a bubble sort
+	arr = $("#algor>.ip").val().split(", ");
+   var len = arr.length;
+   for (var i = len - 1; i >= 0; i--) {
+	   for (var x = 1; x <= i; x++) {
+		   if (arr[x - 1] > arr[x]) {
+			   var temp = arr[x - 1];
+			   arr[x - 1] = arr[x];
+			   arr[x] = temp;
+		   }
+	   }
+   }
+   $("#algor>.out").text(arr);
+}
